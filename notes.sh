@@ -8,3 +8,8 @@ strace -p pid
 strace -c -p pid
 strace -e poll,select,connect,recvfrom,sendto nc www.example.com 80
 
+## dirs
+pushd .
+popd
+dirs -v
+cd ~1
