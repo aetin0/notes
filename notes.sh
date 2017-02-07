@@ -37,3 +37,7 @@ export PROMPT_COMMAND=__prompt_command
 ## history
 source !$
 !42 # exe 42th command in $(history)
+
+## virsh : port forwarding from host to guest
+# guest VM must be started
+virsh qemu-monitor-command --hmp VM_NAME 'hostfwd_add ::2222-:8065'
