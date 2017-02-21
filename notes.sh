@@ -41,3 +41,14 @@ source !$
 ## virsh : port forwarding from host to guest
 # guest VM must be started
 virsh qemu-monitor-command --hmp VM_NAME 'hostfwd_add ::2222-:8065'
+
+function replace_value()
+{
+	[[ -z "$3" ]]\
+		&& echo "usage : replace_value <key> <value> <file>" && return 1
+	#change the value $2 of the key $1 written in $3 file
+	local key=$1
+	local value=$2
+	local file=$3
+	sed -i "s/\($key *= *\).*/\1$value/" $file
+}
